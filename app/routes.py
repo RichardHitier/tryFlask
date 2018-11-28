@@ -32,5 +32,5 @@ def login():
     if form.validate_on_submit():
         flash('Login required for user {}, remember_me={}'.format(
             form.username, form.remember_me))
-        return redirect('/index')
+        return redirect(url_for('index'))
     return render_template('login.html', title="Sign In", form=form)
