@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      {% if title %}
-      <title>{{title}} - tryFlask</title>
-      {% else %}
-      <title>Default Title</title>
-      {% endif %}
-  </head>
+{% extends "base.html" %}
 
-  <body>
+{% block content %}
       {% if user %}
       <h1>Hello, {{user.username}}</h1>
       {% else %}
       <h1>Hello Nobody</h1>
       {% endif %}
-  </body>
-
-</html>
+{% endblock %}
