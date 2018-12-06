@@ -15,17 +15,13 @@ def index():
 def notitle():
     return  render_template('index.html')
 
-@app.route('/showposts')
+@app.route('/posts')
 @login_required
-def showposts():
-    posts = [{
-                'author': {'username': 'Suzane'},
-                'body': 'This is my body'
-             },
-             {
-                 'author': {'username': 'Richard'},
-                 'body': 'See my muscles'
-             }]
+def posts():
+    all_users = User.query.all()
+    posts = []
+    for u in all_users:
+        posts.append( { 'author': u, 'body': 'This is my body' })
     return render_template('posts.html', title='All Posts', posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])

@@ -4,7 +4,7 @@
       {% if posts %}
       <ul>
           {% for post in posts %}
-          <li><b> {{ post.body }}</b> by {{ post.author.username }}</li>
+            {% include '_post.html' %}
           {% endfor %}
       </ul>
       {% else %}
