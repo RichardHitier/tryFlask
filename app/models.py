@@ -35,7 +35,7 @@ class User(UserMixin, db.Model):
             'User', secondary=followers,
             primaryjoin=(followers.c.follower_id == id ),
             secondaryjoin=(followers.c.followed_id == id ),
-            backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
+            backref=db.backref('followers', lazy='dynamic'), lazy='dynamic') # this name is the new User.fieldname
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
