@@ -76,10 +76,7 @@ def logout():
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    posts = [{
-                'author': user, 'body': 'This is my body' },
-             { 'author': user, 'body': 'See my muscles'
-             }]
+    posts = user.followed_posts()
     return render_template('user.html', title='User Profile', user=user, posts=posts)
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
