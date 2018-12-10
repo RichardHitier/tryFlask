@@ -18,11 +18,7 @@ def before_request():
 @login_required
 def index():
     form = PostForm()
-    posts = [
-            {'author': {'username': 'John'},
-             'body': 'john\'s body'},
-            {'author': {'username': 'Suzannah'},
-             'body': 'Suzannah\'s body'}]
+    posts = current_user.followed_posts().all()
     if form.validate_on_submit():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
@@ -30,6 +26,11 @@ def index():
         flash( 'Post published')
         return redirect(url_for('index'))
     return  render_template('index.html', title='Home Page', form=form, posts=posts )
+
+@app.route('/explore')
+def explore():
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    return  render_template('index.html', title='Explore', posts=posts )
 
 @app.route('/notitle')
 def notitle():
