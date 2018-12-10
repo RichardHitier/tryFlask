@@ -3,6 +3,10 @@ from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextA
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from models import User
 
+class PostForm(FlaskForm):
+    post = TextAreaField('Post Body', validators=[DataRequired(), Length(min=0, max=140)])
+    submit = SubmitField('Publish')
+
 class EditProfileForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     about_me = TextAreaField('About Me', validators=[Length(min=0, max=140)])
