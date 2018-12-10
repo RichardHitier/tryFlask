@@ -18,19 +18,33 @@ def before_request():
 @login_required
 def index():
     form = PostForm()
-    posts = current_user.followed_posts().all()
     if form.validate_on_submit():
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
         flash( 'Post published')
         return redirect(url_for('index'))
-    return  render_template('index.html', title='Home Page', form=form, posts=posts )
+    page_num = request.args.get('page_num', 1, type=int)
+    posts = current_user.followed_posts().paginate(
+            page_num, app.config['POST_PER_PAGE'], False)
+    next_url = url_for('index', page_num=posts.next_num)\
+            if posts.has_next else None
+    prev_url = url_for('index', page_num=posts.prev_num)\
+            if posts.has_prev else None
+    return  render_template('index.html', title='Home Page', form=form, posts=posts.items,
+            next_url=next_url, prev_url=prev_url)
 
-@app.route('/explore')
+@app.route('/explore', methods=['GET', 'POST'])
 def explore():
-    posts = Post.query.order_by(Post.timestamp.desc()).all()
-    return  render_template('index.html', title='Explore', posts=posts )
+    page_num = request.args.get('page_num', 1, type=int)
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+            page_num, app.config['POST_PER_PAGE'], False)
+    next_url = url_for('explore', page_num=posts.next_num)\
+            if posts.has_next else None
+    prev_url = url_for('explore', page_num=posts.prev_num)\
+            if posts.has_prev else None
+    return  render_template('index.html', title='Explore', posts=posts.items,
+            next_url=next_url, prev_url=prev_url)
 
 @app.route('/notitle')
 def notitle():
