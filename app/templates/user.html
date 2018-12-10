@@ -21,11 +21,17 @@
     {% endif %}
 
     {% if posts %}
-    <hr/>
-    {% for post in posts %}
-        {% include '_post.html' %}
-    {% endfor %}
+        <hr/>
+        {% for post in posts %}
+            {% include '_post.html' %}
+        {% endfor %}
+         {% if prev_url %}
+             <a href={{ prev_url }}>prev</a>
+         {% endif %}
+         {% if next_url %}
+             <a href={{ next_url }}>next</a>
+         {% endif %}
     {% else %}
-    <h1>No posts</h1>
+        <h1>No posts</h1>
     {% endif %}
 {% endblock %}
