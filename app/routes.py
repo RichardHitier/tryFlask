@@ -5,13 +5,45 @@ from datetime import datetime
 
 from app import app, db
 from app.forms import LoginForm, RegisterForm, EditProfileForm, PostForm
+from app.forms import  ResetPasswordRequestForm,  ResetPasswordForm
 from app.models import User, Post
+from app.email import send_password_reset_email
 
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    if current_user.is_authenticated:
+        flash('sorry, you cant reset passwd while connected')
+        return redirect(url_for('index'))
+    user = User.verify_reset_password_token(token)
+    if not user:
+        flash('token not verified')
+        return redirect(url_for('index'))
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user.set_password(form.password.data)
+        db.session.commit()
+        flash(user.username+': Password resetted to'+form.password.data)
+        return redirect(url_for('login'))
+    return render_template('reset_password.html', title='Password Reset', form=form)
+
+@app.route('/reset_password_request', methods=['GET', 'POST'])
+def reset_password_request():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    form = ResetPasswordRequestForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            send_password_reset_email(user)
+        flash( 'Email sent for password reset')
+        return redirect(url_for('login'))
+    return render_template('reset_password_request.html', title='Reset Password', form=form)
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
@@ -110,7 +142,6 @@ def user(username):
         if posts.has_prev else None
     return render_template('user.html', user=user, posts=posts.items,
                            next_url=next_url, prev_url=prev_url)
-
 
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
