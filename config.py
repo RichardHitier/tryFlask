@@ -19,3 +19,7 @@ class Config(object):
     POSTS_PER_PAGE = 5
 
     LANGUAGES = ['en', 'es', 'fr']
+
+    #for heroku
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')
+

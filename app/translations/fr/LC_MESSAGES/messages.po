@@ -1,0 +1,267 @@
+# French translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-12-13 15:35+0100\n"
+"PO-Revision-Date: 2018-12-13 15:09+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/__init__.py:23
+msgid "Please log in to access page"
+msgstr "S'il vous plait, connectez vous pour accéder à la page"
+
+#: app/__init__.py:67
+msgid "Microblog startup"
+msgstr "Départ de Microblog"
+
+#: app/email.py:21
+msgid "[Microblog] Password Reset"
+msgstr "[Microblog] Reset de mot de passe"
+
+#: app/forms.py:8 app/forms.py:37 app/forms.py:44
+msgid "Password"
+msgstr "Mot de Passe"
+
+#: app/forms.py:9 app/forms.py:45
+msgid "Repeat Password"
+msgstr "Répéter le mot de Passe"
+
+#: app/forms.py:10
+msgid "Password Reset"
+msgstr "Reseter le mot de passe"
+
+#: app/forms.py:13 app/forms.py:43
+msgid "Email"
+msgstr "Courriel"
+
+#: app/forms.py:14
+msgid "Request Password Reset"
+msgstr "Demander un nouveau mot de passe"
+
+#: app/forms.py:17
+msgid "Post Body"
+msgstr "Corps de message"
+
+#: app/forms.py:18
+msgid "Publish"
+msgstr "Publier"
+
+#: app/forms.py:21 app/forms.py:36 app/forms.py:42
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: app/forms.py:22
+msgid "About Me"
+msgstr "A propos"
+
+#: app/forms.py:23
+msgid "Change Profile"
+msgstr "Changer de profil"
+
+#: app/forms.py:33
+msgid "Please use a different username."
+msgstr "S'il vous plait, utilisez un autre nom"
+
+#: app/forms.py:38
+msgid "Remember Me"
+msgstr "Se souvenir"
+
+#: app/forms.py:39
+msgid "Sign In"
+msgstr "Se connecter"
+
+#: app/forms.py:46 app/templates/register.html:5
+msgid "Register"
+msgstr "S'inscrire"
+
+#: app/forms.py:51
+msgid "Please use a different username"
+msgstr "S'il vous plait, utilisez un autre nom"
+
+#: app/forms.py:56
+msgid "Please use a different email"
+msgstr "S'il vous plait, utilisez un autre courriel"
+
+#: app/routes.py:23
+msgid "sorry, you cant reset passwd while connected"
+msgstr "Désolé, vous ne pouvez pas resetter en étant connecté"
+
+#: app/routes.py:27
+msgid "token not verified"
+msgstr "Token invalid"
+
+#: app/routes.py:34
+msgid "For User: %(username) Password resetted to: %(passwrord) "
+msgstr "Pour l'utilisateur : %(username) mot de pas mis à: %(passwrord) "
+
+#: app/routes.py:47
+msgid "Email sent for password reset"
+msgstr "Courriel envoyé pour annulation de mot de passe"
+
+#: app/routes.py:60
+msgid "Post published"
+msgstr "Message publié"
+
+#: app/routes.py:105
+msgid "Invalid username or password"
+msgstr "Nom ou mot de passe invalide"
+
+#: app/routes.py:126
+msgid "Congratulation %(username), you are registered"
+msgstr "Félicitations %(username), vous être inscrit"
+
+#: app/routes.py:157
+msgid "Sucessfully updated your profile"
+msgstr "Mise à jour du profile réussie"
+
+#: app/routes.py:169 app/routes.py:184
+msgid "User %(username) not found"
+msgstr "Utilisateur %(username) introuvable"
+
+#: app/routes.py:172
+msgid "Cannot follow yourself"
+msgstr "Impossible de vous suivre vous même"
+
+#: app/routes.py:176
+msgid "You are following %(username)"
+msgstr "Vous suivez %(username)"
+
+#: app/routes.py:187
+msgid "Cannot unfollow yourself"
+msgstr "Impossible de vous suivre vous même"
+
+#: app/routes.py:191
+msgid "You have unfollowed %(username)"
+msgstr "Vous ne suivez plus %(username)"
+
+#: app/templates/404.html:4
+msgid "File Not Found"
+msgstr "Fichier introuvable"
+
+#: app/templates/404.html:5 app/templates/500.html:6
+msgid "Back Home"
+msgstr "Retour à l'accueil"
+
+#: app/templates/_post.html:12
+msgid "said"
+msgstr "à écrit"
+
+#: app/templates/base.html:15
+msgid "Default Title"
+msgstr "Titre par défaut"
+
+#: app/templates/base.html:23
+msgid "Toggle navigation"
+msgstr "Change la navigation"
+
+#: app/templates/base.html:28
+msgid "Try Flask"
+msgstr "Essayer Flask"
+
+#: app/templates/base.html:32
+msgid "Home"
+msgstr "Accueil"
+
+#: app/templates/base.html:33
+msgid "Explore"
+msgstr "Explorer"
+
+#: app/templates/base.html:37
+msgid "Login"
+msgstr "Connexion"
+
+#: app/templates/base.html:39
+msgid "Profile"
+msgstr "Profil"
+
+#: app/templates/base.html:40
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: app/templates/edit_profile.html:6
+msgid "Edit Profile"
+msgstr "Éditer son profil"
+
+#: app/templates/index.html:6
+msgid "Hello,"
+msgstr "Salut,"
+
+#: app/templates/index.html:23 app/templates/user.html:31
+msgid "Newer posts"
+msgstr "Plus récents"
+
+#: app/templates/index.html:29 app/templates/user.html:36
+msgid "Older posts"
+msgstr "Plus anciens"
+
+#: app/templates/index.html:34
+msgid "Hello , not logged in yet"
+msgstr "Salut, par encore connecté"
+
+#: app/templates/login.html:11
+msgid "New User ?"
+msgstr "Nouveau ?"
+
+#: app/templates/login.html:12
+msgid "Click to Register"
+msgstr "Clicker pour s'inscrire"
+
+#: app/templates/login.html:14
+msgid "Forgot your password ?"
+msgstr "Mot de passe oublié ?"
+
+#: app/templates/login.html:15
+msgid "Click to Reset"
+msgstr "Clicker pour resetter"
+
+#: app/templates/posts.html:11 app/templates/user.html:42
+msgid "No posts"
+msgstr "Pas de messages"
+
+#: app/templates/reset_password.html:5
+msgid "Reset Password"
+msgstr "Resseter le mot de passe"
+
+#: app/templates/reset_password_request.html:5
+msgid "Request New Password"
+msgstr "Demandre un nouveau mot de passe"
+
+#: app/templates/user.html:9
+msgid "Last seen on:"
+msgstr "Dernière visite:"
+
+#: app/templates/user.html:10
+msgid "followers,"
+msgstr "Abonnés"
+
+#: app/templates/user.html:10
+msgid "following."
+msgstr "Abonnements"
+
+#: app/templates/user.html:16
+msgid "Edit your profile"
+msgstr "éditer votre profil"
+
+#: app/templates/user.html:18
+msgid "Unfollow"
+msgstr "Se désabonner"
+
+#: app/templates/user.html:20
+msgid "Follow"
+msgstr "S'abonner"
+
+#~ msgid "[Microblog] Reseter le mot de passe"
+#~ msgstr ""
+

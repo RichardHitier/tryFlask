@@ -31,7 +31,7 @@ def reset_password(token):
         user.set_password(form.password.data)
         db.session.commit()
         flash(user.username+': Password resetted to '+form.password.data)
-        flash(_('For User: %(username) Password resetted to: %(passwrord) ', username=user.username, passwrord=form.pasword.data))
+        flash(_('For User: %(username)s Password resetted to: %(password)s ', username=user.username, passwrord=form.pasword.data))
         return redirect(url_for('login'))
     return render_template('reset_password.html', title='Password Reset', form=form)
 
@@ -123,7 +123,7 @@ def register():
         db.session.add(user)
         db.session.commit()
         #if user is None or not user.check_password(form.password.data):
-        flash(_('Congratulation %(username), you are registered', username=user.username))
+        flash(_('Congratulation %(username)s, you are registered', username=user.username))
         return redirect(url_for('index'))
     return render_template('register.html', title='Register', form=form)
 
@@ -166,14 +166,14 @@ def edit_profile():
 def follow(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
-        flash( _('User %(username) not found', username=username))
+        flash( _('User %(username)s not found', username=username))
         return redirect(url_for('index'))
     if user == current_user.username:
         flash( _('Cannot follow yourself'))
         return redirect(url_for('user', username=username))
     current_user.follow(user)
     db.session.commit()
-    flash( _('You are following %(username)', username=username))
+    flash( _('You are following %(username)s', username=username))
     return redirect(url_for('user', username=username))
 
 @app.route('/unfollow/<username>')
@@ -181,12 +181,12 @@ def follow(username):
 def unfollow(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
-        flash( _('User %(username) not found', username=username))
+        flash( _('User %(username)s not found', username=username))
         return redirect(url_for('index'))
     if user == current_user.username:
         flash( _('Cannot unfollow yourself'))
         return redirect(url_for('user', username=username))
     current_user.unfollow(user)
     db.session.commit()
-    flash( _('You have unfollowed %(username)', username=username))
+    flash( _('You have unfollowed %(username)s', username=username))
     return redirect(url_for('user', username=username))
