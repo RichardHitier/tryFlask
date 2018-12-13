@@ -13,11 +13,11 @@
     </table>
 
     {% if user == current_user %}
-        <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+    <p><a href="{{ url_for('edit_profile') }}">{{_('Edit your profile')}}</a></p>
     {% elif current_user.is_following(user) %}
-        <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow</a></p>
+        <p><a href="{{ url_for('unfollow', username=user.username) }}">{{_('Unfollow')}}</a></p>
     {% else %}
-        <p><a href="{{ url_for('follow', username=user.username) }}">Follow</a></p>
+    <p><a href="{{ url_for('follow', username=user.username) }}">{{_('Follow')}}</a></p>
     {% endif %}
 
     {% if posts %}
@@ -28,12 +28,12 @@
               <ul class="pager">
                   <li class="previous{% if not prev_url %} disabled{% endif %}">
                       <a href="{{ prev_url or '#' }}">
-                          <span aria-hidden="true">&larr;</span> Newer posts
+                          <span aria-hidden="true">&larr;</span>{{_('Newer posts')}}
                       </a>
                   </li>
                   <li class="next{% if not next_url %} disabled{% endif %}">
                       <a href="{{ next_url or '#' }}">
-                          <span aria-hidden="true">&rarr;</span> Older posts
+                          <span aria-hidden="true">&rarr;</span>{{_('Older posts')}}
                       </a>
                   </li>
               </ul>
