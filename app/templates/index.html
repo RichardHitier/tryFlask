@@ -3,7 +3,7 @@
 
 {% block app_content %}
       {% if current_user.is_authenticated %}
-          <h1>Hello, {{current_user.username}}</h1>
+          <h1>{{_('Hello,')}} {{current_user.username}}</h1>
           {% if form %}
             <div class="row">
                 <div class="col-md-4">
@@ -31,6 +31,6 @@
               </ul>
           </ nav>
       {% else %}
-          <h1>Hello , not logged in yet</h1>
+      <h1>{{_('Hello , not logged in yet')}}</h1>
       {% endif %}
 {% endblock %}

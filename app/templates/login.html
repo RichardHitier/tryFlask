@@ -8,10 +8,10 @@
             {{ wtf.quick_form(form) }}
         </div>
     </div>
-    <p> New User ?
-      <a href="{{ url_for('register') }}">Click to Register</a>
+    <p> {{_('New User ?')}}
+        <a href="{{ url_for('register') }}">{{_('Click to Register')}}</a>
     </p>
-    <p> Forgot your password ?
-      <a href="{{ url_for('reset_password_request') }}">Click to Reset</a>
+    <p> {{_('Forgot your password ?')}}
+        <a href="{{ url_for('reset_password_request') }}">{{_('Click to Reset')}}</a>
     </p>
 {% endblock %}
