@@ -1,4 +1,6 @@
-https://img.shields.io/github/repo-size/RichardHitier/BibHelioTech
+![GitHub repo size](https://img.shields.io/github/repo-size/RichardHitier/BibHelioTech)
+
+
 
 
 # tryFlask
